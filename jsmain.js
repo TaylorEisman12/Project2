@@ -23,3 +23,11 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 		selectLi.appendChild(makeSelect);
 	}
+ 	function getSelectedRadio(){
+		var radios = document.forms[0].transmission;
+		for (var i=0; i<radios.length; i++){
+			if(radios[i].checked){
+				transmissionValue = radios[i].value; 
+			}
+		}
+	}
