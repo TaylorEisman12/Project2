@@ -57,4 +57,21 @@ window.addEventListener("DOMContentLoaded", function(){
 				return false;
 		}
 	}
-	
+	function storeData(key){
+		var id  			= Math.floor(Math.random()*10000001);
+		id = key;
+		getSelectedRadio();
+		setCheckboxValue();
+		var item					= {};
+			item.year				= ["Year: ", $('years').value];
+			item.make				= ["First Name: ", $('make').value];
+			item.model				= ["Last Name: ", $('model').value];
+			item.color				= ["Color: ", $('color').value];
+			item.transmission		= ["Transmission: ", transmissionValue];
+			item.leather			= ["Leather: ", leatherValue];
+			item.horsepower			= ["Horsepower: ", $('horsepower').value];
+			item.date				= ["Date: ", $('date').value];
+			item.notes				= ["Notes: ", $('notes').value];
+		localStorage.setItem(id, JSON.stringify(item));
+		alert("Car Saved!");
+	}	
