@@ -31,3 +31,10 @@ window.addEventListener("DOMContentLoaded", function(){
 			}
 		}
 	}
+	function setCheckboxValue(){
+		if($('leather').checked){
+			leatherValue = $('leather').value;
+		}else{
+			leatherValue = "No"
+		}
+	}
