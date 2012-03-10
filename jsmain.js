@@ -67,11 +67,39 @@ window.addEventListener("DOMContentLoaded", function(){
 			item.make				= ["First Name: ", $('make').value];
 			item.model				= ["Last Name: ", $('model').value];
 			item.color				= ["Color: ", $('color').value];
-			item.transmission		= ["Transmission: ", transmissionValue];
-			item.leather			= ["Leather: ", leatherValue];
-			item.horsepower			= ["Horsepower: ", $('horsepower').value];
+			item.transmission			= ["Transmission: ", transmissionValue];
+			item.leather				= ["Leather: ", leatherValue];
+			item.horsepower				= ["Horsepower: ", $('horsepower').value];
 			item.date				= ["Date: ", $('date').value];
 			item.notes				= ["Notes: ", $('notes').value];
 		localStorage.setItem(id, JSON.stringify(item));
 		alert("Car Saved!");
-	}	
+	}
+	function getData(){
+		toggleControls("on");
+		if(localStorage.length === 0){
+			autoFillData();
+			alert("No data exists so default data was added.");
+		}
+		var makeDiv = document.createElement('div');
+		makeDiv.setAttribute("id", "items");
+		var makeList = document.createElement('ul');
+		makeDiv.appendChild(makeList);
+		document.body.appendChild(makeDiv);
+		$('items').style.display = "block";
+		for(var i=0, len=localStorage.length; i<len;i++){
+			var makeli = document.createElement('li');
+			makeList.appendChild(makeli);
+			var key = localStorage.key(i);
+			var value = localStorage.getItem(key);
+			var obj = JSON.parse(value);
+			var makeSubList = document.createElement('ul');
+			makeli.appendChild(makeSubList);
+			for(var n in obj){
+				var makeSubli = document.createElement('li');
+				makeSubList.appendChild(makeSubli);
+				var optSubText = obj[n][0]+" "+obj[n][1];
+				makeSubli.innerHTML = optSubText;
+			}
+		}
+	}
