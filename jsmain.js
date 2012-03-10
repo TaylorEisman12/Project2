@@ -38,3 +38,23 @@ window.addEventListener("DOMContentLoaded", function(){
 			leatherValue = "No"
 		}
 	}
+	function toggleControls(n){
+		switch(n){
+			case "on":
+				$('carDetails').style.display = "none";
+				$('clear').style.display = "inline";
+				$('displayLink').style.display = "none";
+				$('addNew').style.display = "inline";
+				break;
+			case "off":
+				$('carDetails').style.display = "block";
+				$('clear').style.display = "inline";
+				$('displayLink').style.display = "inline";
+				$('addNew').style.display = "none";
+				$('items').style.display = "none";
+				break;
+			default:
+				return false;
+		}
+	}
+	
