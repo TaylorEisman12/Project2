@@ -113,3 +113,24 @@ window.addEventListener("DOMContentLoaded", function(){
 			return false;ß
 		}
 	}
+	var contactYears = ["--Choose A Year--", "1966", "1967", "1968", "1969"],
+		transmissionValue,
+		leatherValue = "No"
+	;
+	
+	var displayLink = $('displayLink');
+	displayLink.addEventListener("click", getData);
+	var clearLink = $('clear');
+	clearLink.addEventListener("click", clearLocal);	
+	var save = $('submit');
+	save.addEventListener("click", storeData);
+	var checkbox = $('leather');
+	checkbox.addEventListener("click", setCheckboxValue);
+	var radios = document.forms[0].transmission;
+	for(var i=0; i<radios.length; i++){
+		radios[i].addEventListener("click", getSelectedRadio);
+	}
+	
+	makeCats();
+	
+});
